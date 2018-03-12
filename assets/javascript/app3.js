@@ -3,7 +3,8 @@ var incorrect = 0;
 var unanswered = 0;
 var i = 0;
 var options = [];
-var clock = 0;
+var guess = "";
+var clock = 20;
 
 var quiz = [{
     question: "What is the name of the character that goes missing in the first episode?",
@@ -15,107 +16,35 @@ var quiz = [{
     answers: ["The Inside Out", "Underwater", " The Other Side"],
     correct: "The Upside Down."
     },
-    {        
+    {
     question: "How did Will communicate with his mom from the other side?",
     answers: ['Candles', 'Telepathy', 'Knocking'],
     correct: 'Christmas Lights'  
-    },
-    {        
-    question: "What is the nickname given to the bully's by Jonathan?",
-    answers: ["Jerks", "Thick Heads", "Tweedle Dee & Tweedle Dum"],
-    correct: "Mouth Breathers"
-    // },
-    // {        
-    // question:
-    // answers: 
-    // correct: 
-    // },
-    // {        
-    // question:
-    // answers: 
-    // correct: 
-    // },
-    // {        
-    // question:
-    // answers: 
-    // correct: 
-    // },
-    // {        
-    // question:
-    // answers: 
-    // correct: 
-    // },
-    // {        
-    // question:
-    // answers: 
-    // correct: 
-    // },
-    // {        
-    // question:
-    // answers: 
-    // correct: 
-    }  
+    }
 ]
 
 $(document).ready(function() {
     //button to start game and timer
     var setClock;
-    // var clockRunning = false;
-    $('#gameOver').hide();
-
-    // $('#start').on('click', startGame);
-    // $(document).on("click", ".answers", grade);
+    $('#start').on('click', startGame);
+    $(document).on("click", ".answers", grade);
     // $(".answers").on('click', grade);
 
-    // $('#start').on('click', function (){
-    //     setTimer();
-    //     $('#empty').empty();
-    //     $('#start').hide();
-    //     question();
-        // setTimer();
-    });
-
-    $(document).on("click", ".answers", grade) 
-    // $(".answers").on('click', grade);
-    
-
-    function setTimer () {
-        // clockRunning = true;
-
-        $('#start').off("click");
+    function startGame() {
         clock = 20;
-
         setClock = setInterval(decrementTimer, 1000);      
         function decrementTimer(){
             $('#timer').text(clock);
             clock --;
-            if (clock <= 0){
+            if (clock < 0){
                 clearInterval(setClock);
             }
-        };  
-    };
-
-    // $("#start").on('click', startGame);
-
-//   function startGame() {
-//     $('#start').off('click', startGame);
-
-//     var timer = 20;
-//     var setTimer = setInterval(decrementTimer, 1000);
-
-//         function decrementTimer() {
-//         $('#timer').text(timer);
-//         timer--;
-//         // console.log(timer);
-
-//         if (timer < 0) {
-//             console.log("timerstop");
-//             clearInterval(setTimer);
-//         }
-//         };}
-
+        }
+        $('#empty').empty();
+        question();
+    }
+    
     function question () {
-        // setTimer();
         $('.question').text(quiz[i].question);
         options = quiz[i].answers
         var rand = Math.floor(Math.random() * 3)
@@ -131,7 +60,6 @@ $(document).ready(function() {
             // a + '" value ="' + quiz[i].answers[a] + 
             // quiz[i].answers[a] + '<br>');
         };
-        
     };
 
     function grade() {
@@ -154,10 +82,11 @@ $(document).ready(function() {
             $('.quiz').hide();
             $('#score').hide();
             $('#gameOver').show();
-        }
-        // clock = 0;
-        clearInterval(setClock)
-        setTimer();
-    }  
+        } 
+        clearInterval(setClock);
+        startGame();
+    };
 
 
+
+});

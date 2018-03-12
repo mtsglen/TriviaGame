@@ -1,10 +1,10 @@
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <title>Stranger Things Trivia</title>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
         <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -12,19 +12,38 @@
     </head>
     <body>
         <header>
-            <h1>Stranger Things Trivia</h1>
+            <img src="assets/images/Stranger_Things_logo.png"  alt="By Lowtrucks - Own work, Public Domain, https://commons.wikimedia.org/w/index.php?curid=50284157">
+            
         </header>
         <section class = 'clock'>
-            <button id="start">Start Game</button>
-            <h2 id='timer'> 20</h2>
+            <button id="start"><img src="assets/images/start-game.png" ></button>
+            <h2 id='timer'> 15</h2>
         </section>
         <section class = 'quiz'>
             <section class ='question'>
-                <h1 id='empty'>WELCOME! You are about to play the Stranger Things triva game.</h1>
+                <section id='empty'>
+                    <h1>WELCOME!</h1>
+                    <h2>You are about to play the Stranger Things triva game.</h2>
+                    <p> There are 10 questions for you to answer.  Once you click Start Game the first question will load.  You have 15 seconds to answer a question.  The first button you click will be logged as your answer and will load the next question.</p>
+                    <p> You will be scored on the number of questions you answer correctly.  If you do not answer a question within the timeframe it will be counted as incorrect and the next question will load.</p>
+                    <h2>Are you ready to play?</h2>
+                </section>
             </section>
             <section class="buttons">
             </section> 
         </section>
-        <script type="text/javascript" src="assets/javascript/app.js"></script>
+        <section id = "score">
+            <h1>Score</h1>
+            <p class="correct"> </p>
+            <p class="incorrect"> </p>
+        </section>
+        <section id = "gameOver">
+            <h1>Game Over</h1>
+            <h2>Your Final Score is...</h2>
+            <p class="correct"> </p>
+            <p class="incorrect"> </p>
+            <button id="Play-Again">Play Again</button>
+        </section>
+        <script type="text/javascript" src="assets/javascript/app4.js"></script>
     </body>
 </html>
