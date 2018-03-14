@@ -8,52 +8,52 @@ var rand;
 
 var quiz = [{
     question: "What is the name of the character that goes missing in the first episode?",
-    answers: ['Wyatt', 'Walter', 'Bob'],
+    answers: ['Wyatt', 'Walter', 'Will', 'Bob'],
     correct: 'Will'
     }, 
     {
     question: "Where did will go when he was abducted?",
-    answers: ["The Inside Out", "Underwater", " The Other Side"],
+    answers: ["The Inside Out", "The Upside Down", "Underwater", " The Other Side"],
     correct: "The Upside Down"
     },
     {        
     question: "How did Will communicate with his mom from the other side?",
-    answers: ['Candles', 'Telepathy', 'Knocking'],
+    answers: ['Candles', 'Telepathy', 'Knocking', 'Christmas Lights'],
     correct: 'Christmas Lights'  
     },
     {        
     question: "What is the nickname given to the bully's by Jonathan?",
-    answers: ["Jerks", "Thick Heads", "Tweedle Dee & Tweedle Dum"],
+    answers: ["Mouth Breathers", "Jerks", "Thick Heads", "Tweedle Dee & Tweedle Dum"],
     correct: "Mouth Breathers"
     },
     {        
     question: "What happens to Eleven when she uses her power?",
-    answers:["She goes deaf", "Her ears bleed", "She goes blind"], 
+    answers:["She goes deaf", "Her ears bleed", "She goes blind", "Her nose bleeds"], 
     correct: "Her nose bleeds"
     },
     {        
     question: "What name do the kids give the monsters?",
-    answers: ["Alien", "Monster", "Chupacabra"],
+    answers: ["Alien", "Monster", "Demogorgon", "Chupacabra"],
     correct: "Demogorgon"
     },
     {        
     question: "Which one of these is not the name of a boy from the group?",
-    answers: ["Mike", "Dustin", 'Lucas'],
-    correct: ["Jim"]
+    answers: ["Mike", "Jim", "Dustin", 'Lucas'],
+    correct: "Jim"
     },
     {        
     question: "Which game that the boys played inspired the name of the monsters?",
-    answers: ["Magicians", "Galaga", "Mystery Mansion"],
+    answers: ["Dugeons and Dragons", "Magicians", "Galaga", "Mystery Mansion"],
     correct: "Dugeons and Dragons"
     },
     {        
     question: "Where is the portal to the Upside Down?",
-    answers: ["In the Quary", "In the pond", "In the pool"],
+    answers: ["In the Quary", "In the pond", "In a tree", "In the pool"],
     correct: "In a tree"
     },
     {        
     question: "What is the name of the lab where the monsters escapted from?",
-    answers: ["Sunshine Labs", "Walker National Labs", "Sunflower Labs"],
+    answers: ["Sunshine Labs", "Hawkins National Lab", "Walker National Labs", "Sunflower Labs"],
     correct: "Hawkins National Lab"
     }  
 ]
@@ -87,14 +87,14 @@ $(document).ready(function() {
                     $('#timer').hide();
                     clearInterval(setClock);
                 } else {
-                incorrect++
-                $('.incorrect').text("Incorrect: " + incorrect);
-                clearInterval(setClock)
-                // startGame();
-                i++
-                $('.buttons').empty();
-                startGame();
-                // question();
+                    incorrect++
+                    $('.incorrect').text("Incorrect: " + incorrect);
+                    clearInterval(setClock)
+                    // startGame();
+                    i++
+                    $('.buttons').empty();
+                    startGame();
+                    // question();
                 }
             } else if (clock < 0) {
                 clearInterval(setClock);
@@ -107,11 +107,15 @@ $(document).ready(function() {
 
     function question () {
         // setTimer();
-        $('.question').text(quiz[i].question);
-        options = quiz[i].answers
-        rand = Math.floor(Math.random() * 3)
-        options.splice(rand, 0, quiz[i].correct);
-        for (var a = 0; a < options.length; a++) {
+//         $('.question').text(quiz[i].question);
+// console.log(quiz[i].answers)
+//         options = quiz[i].answers;
+// console.log(options)
+//         rand = Math.floor(Math.random() * 3)
+//         options.splice(rand, 0, quiz[i].correct);
+       
+        for (var a = 0; a < quiz[i].answers.length; a++) {
+// console.log(options)
             var button = $('<button>')
             button.attr('class', 'answers')
             button.attr('id', a)

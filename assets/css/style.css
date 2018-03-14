@@ -41,7 +41,7 @@ h1 {
     font-size: 30px;
 }
 
-h2, .answers, .question {
+h2, .answers, .question, #Play-Again {
     font-size: 24px; 
 }
 
@@ -55,7 +55,7 @@ p {
     
 }
 
-button {
+button, #Play-Again {
     height: 50px;
     width: auto;
     background-color: black;
