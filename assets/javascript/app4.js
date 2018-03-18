@@ -107,7 +107,7 @@ $(document).ready(function() {
 
     function question () {
         // setTimer();
-//         $('.question').text(quiz[i].question);
+        $('.question').text(quiz[i].question);
 // console.log(quiz[i].answers)
 //         options = quiz[i].answers;
 // console.log(options)
